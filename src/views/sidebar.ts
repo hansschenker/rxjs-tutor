@@ -5,6 +5,8 @@ import { families } from '../curriculum/index'
 import { action$ } from '../mvu/store'
 import { navigateTo } from '../router'
 
+let keyListenerRegistered = false
+
 function escapeHtml(s: string): string {
 	return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 }
@@ -63,9 +65,16 @@ export function renderSidebar(filteredOps: Operator[], state: AppState): void {
 		action$.next({ type: 'SEARCH_CHANGED', query: input.value })
 	)
 	// ⌘K / Ctrl+K global shortcut
-	document.addEventListener('keydown', e => {
-		if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); input.focus() }
-	}, { once: false })
+	if (!keyListenerRegistered) {
+		keyListenerRegistered = true
+		document.addEventListener('keydown', e => {
+			if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+				e.preventDefault()
+				const searchInput = document.getElementById('sidebar-search') as HTMLInputElement | null
+				if (searchInput) searchInput.focus()
+			}
+		})
+	}
 
 	// Family toggle
 	el.querySelectorAll<HTMLElement>('[data-toggle-family]').forEach(header => {
