@@ -26,8 +26,15 @@ function streamChunks(res: Response): Observable<string> {
 						const trimmed = line.trim()
 						if (!trimmed) continue
 						try {
-							const parsed = JSON.parse(trimmed) as { chunk?: string }
-							if (parsed.chunk) observer.next(parsed.chunk)
+							const parsed: unknown = JSON.parse(trimmed)
+							if (
+								typeof parsed === 'object' &&
+								parsed !== null &&
+								'chunk' in parsed &&
+								typeof (parsed as { chunk?: unknown }).chunk === 'string'
+							) {
+								observer.next((parsed as { chunk: string }).chunk)
+							}
 						} catch { /* skip malformed line */ }
 					}
 				}
@@ -66,7 +73,10 @@ export const chatEffect$ = action$.pipe(
 					)
 				})
 				.then(obs$ => obs$.subscribe(observer))
-				.catch(err => observer.next({ type: 'CHAT_ERROR', message: String(err) }))
+				.catch(err => {
+					observer.next({ type: 'CHAT_ERROR', message: String(err) })
+					observer.complete()
+				})
 		})
 	}),
 )
