@@ -26,6 +26,13 @@ export interface Family {
 
 export interface TutorConfig {
 	domainName: string
+	/**
+	 * Template for the AI system prompt. Supported placeholders:
+	 *   {domainName}  — e.g. "RxJS"
+	 *   {topicName}   — the topic name
+	 *   {category}    — the category/family name
+	 *   {topicJson}   — JSON.stringify of the Topic object
+	 */
 	systemPromptTemplate: string
 	defaultCategory: string
 	defaultTopic: string
