@@ -1,9 +1,9 @@
 // src/mvu/actions.ts
-import type { Operator, OperatorFamily } from '../curriculum/types'
+import type { Topic } from '../curriculum/types'
 
 export type Action =
-	| { type: 'OPERATOR_SELECTED';      operator: Operator }
-	| { type: 'FAMILY_TOGGLED';         family: OperatorFamily }
+	| { type: 'TOPIC_SELECTED';         topic: Topic }
+	| { type: 'CATEGORY_TOGGLED';       category: string }
 	| { type: 'SEARCH_CHANGED';         query: string }
 	| { type: 'CHAT_MESSAGE_SENT';      content: string }
 	| { type: 'CHAT_CHUNK_RECEIVED';    chunk: string }
