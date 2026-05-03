@@ -1,42 +1,45 @@
 // src/curriculum/types.ts
 
-export type OperatorFamily =
-	| 'Creation'
-	| 'Transformation'
-	| 'Filtering'
-	| 'Combination'
-	| 'Multicasting'
-	| 'ErrorHandling'
-	| 'Utility'
-	| 'Conditional'
-	| 'Mathematical'
-	| 'JoinCreation'
-	| 'SetOperations'
-	| 'Concurrency'
-	| 'SingleValue'
-	| 'RateLimiting'
-	| 'Testing'
-	| 'Inspection'
-	| 'Timing'
-
 export interface CodeExample {
 	title: string
-	code: string
+	content: string
 }
 
-export interface Operator {
+export interface Topic {
 	name: string
-	family: OperatorFamily
-	signature: string
+	category: string
 	description: string
-	marble: string
 	examples: CodeExample[]
-	seeAlso: string[]
 	tags: string[]
+	visual?: string
+	definition?: string
+	seeAlso?: string[]
+	/** Domain-specific extension fields rendered as-is in the reference panel. */
+	meta?: Record<string, string>
 }
 
 export interface Family {
-	name: OperatorFamily
-	description: string
-	operators: Operator[]
+	name: string
+	description?: string
+	topics: Topic[]
+}
+
+export interface TutorConfig {
+	domainName: string
+	/**
+	 * Template for the AI system prompt. Supported placeholders:
+	 *   {domainName}  — e.g. "RxJS"
+	 *   {topicName}   — the topic name
+	 *   {category}    — the category/family name
+	 *   {topicJson}   — JSON.stringify of the Topic object
+	 */
+	systemPromptTemplate: string
+	defaultCategory: string
+	defaultTopic: string
+	labels: {
+		category: string
+		topic: string
+		visual?: string
+		definition?: string
+	}
 }

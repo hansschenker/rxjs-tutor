@@ -1,26 +1,39 @@
 // server/chat.ts
 import express from 'express'
 import Anthropic from '@anthropic-ai/sdk'
-import type { Operator } from '../src/curriculum/types.js'
+import type { Topic } from '../src/curriculum/types.js'
 
-const app	= express()
+interface ChatRequest {
+	topic:   Topic
+	history: Array<{ role: 'user' | 'assistant'; content: string }>
+	message: string
+	config: {
+		domainName:           string
+		systemPromptTemplate: string
+	}
+}
+
+const app    = express()
 const client = new Anthropic({ apiKey: process.env['ANTHROPIC_API_KEY'] })
 
 app.use(express.json())
 
-app.post('/api/chat', async (req, res) => {
-	const { operator, history, message } = req.body as {
-		operator: Operator
-		history:	Array<{ role: 'user' | 'assistant'; content: string }>
-		message:	string
-	}
+function buildSystemPrompt(template: string, topic: Topic, domainName: string): string {
+	return template
+		.replace('{domainName}', domainName)
+		.replace('{topicName}',  topic.name)
+		.replace('{category}',   topic.category)
+		.replace('{topicJson}',  JSON.stringify(topic, null, 2))
+}
 
-	const systemPrompt = [
-		`You are an expert RxJS tutor. Answer concisely and use code examples.`,
-		`The user is currently viewing the \`${operator.name}\` operator (${operator.family} family).`,
-		`Here is its definition: ${JSON.stringify(operator, null, 2)}`,
-		`Reference the marble diagram and examples in your answers when helpful.`,
-	].join('\n')
+app.post('/api/chat', async (req, res) => {
+	const { topic, history, message, config } = req.body as ChatRequest
+
+	const systemPrompt = buildSystemPrompt(
+		config.systemPromptTemplate,
+		topic,
+		config.domainName,
+	)
 
 	res.setHeader('Content-Type', 'application/x-ndjson')
 	res.setHeader('Transfer-Encoding', 'chunked')
@@ -28,9 +41,9 @@ app.post('/api/chat', async (req, res) => {
 
 	try {
 		const stream = client.messages.stream({
-			model:		'claude-haiku-4-5-20251001',
+			model:      'claude-haiku-4-5-20251001',
 			max_tokens: 1024,
-			system:		systemPrompt,
+			system:     systemPrompt,
 			messages: [
 				...history.map(m => ({ role: m.role, content: m.content })),
 				{ role: 'user', content: message },

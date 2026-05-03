@@ -1,5 +1,5 @@
 // src/mvu/model.ts
-import type { Operator, OperatorFamily } from '../curriculum/types'
+import type { Topic } from '../curriculum/types'
 
 export interface ChatMessage {
 	role: 'user' | 'assistant'
@@ -13,16 +13,16 @@ export interface ChatState {
 }
 
 export interface AppState {
-	selectedFamily:   OperatorFamily | null
-	selectedOperator: Operator | null
+	selectedCategory: string | null
+	selectedTopic:    Topic | null
 	searchQuery:      string
-	sidebarExpanded:  Set<OperatorFamily>
+	sidebarExpanded:  Set<string>
 	chat:             ChatState
 }
 
 export const initialState: AppState = {
-	selectedFamily:   null,
-	selectedOperator: null,
+	selectedCategory: null,
+	selectedTopic:    null,
 	searchQuery:      '',
 	sidebarExpanded:  new Set(),
 	chat: { history: [], loading: false, error: null },

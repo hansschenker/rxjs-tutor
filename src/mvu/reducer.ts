@@ -4,18 +4,18 @@ import type { Action } from './actions'
 
 export function reducer(state: AppState, action: Action): AppState {
 	switch (action.type) {
-		case 'OPERATOR_SELECTED':
+		case 'TOPIC_SELECTED':
 			return {
 				...state,
-				selectedOperator: action.operator,
-				selectedFamily:   action.operator.family,
+				selectedTopic:    action.topic,
+				selectedCategory: action.topic.category,
 				chat: { history: [], loading: false, error: null },
 			}
 
-		case 'FAMILY_TOGGLED': {
+		case 'CATEGORY_TOGGLED': {
 			const next = new Set(state.sidebarExpanded)
-			if (next.has(action.family)) next.delete(action.family)
-			else next.add(action.family)
+			if (next.has(action.category)) next.delete(action.category)
+			else next.add(action.category)
 			return { ...state, sidebarExpanded: next }
 		}
 
