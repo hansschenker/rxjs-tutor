@@ -2,12 +2,9 @@
 import { Observable, of, endWith } from 'rxjs'
 import { exhaustMap, withLatestFrom, map, catchError } from 'rxjs'
 import { action$, ofType, state$ } from '../mvu/store'
+import { config } from '../tutor.config'
 import type { Action } from '../mvu/actions'
 
-/**
- * Reads a streaming fetch Response body as NDJSON lines.
- * Server writes: `{"chunk":"...text..."}\n` per event.
- */
 function streamChunks(res: Response): Observable<string> {
 	return new Observable<string>(observer => {
 		const reader  = res.body!.getReader()
@@ -52,16 +49,20 @@ export const chatEffect$ = action$.pipe(
 	ofType('CHAT_MESSAGE_SENT'),
 	withLatestFrom(state$),
 	exhaustMap(([action, state]) => {
-		if (!state.selectedOperator) return of<Action>({ type: 'CHAT_ERROR', message: 'No operator selected' })
+		if (!state.selectedTopic) return of<Action>({ type: 'CHAT_ERROR', message: 'No topic selected' })
 
 		return new Observable<Action>(observer => {
 			fetch('/api/chat', {
 				method:  'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					operator: state.selectedOperator,
-					history:  state.chat.history.slice(0, -2), // exclude the placeholder pair just added by the reducer
-					message:  action.content,
+					topic:   state.selectedTopic,
+					history: state.chat.history.slice(0, -2),
+					message: action.content,
+					config: {
+						domainName:             config.domainName,
+						systemPromptTemplate:   config.systemPromptTemplate,
+					},
 				}),
 			})
 				.then(res => {
