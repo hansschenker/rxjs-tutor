@@ -1,42 +1,37 @@
 // src/curriculum/types.ts
 
-export type OperatorFamily =
-	| 'Creation'
-	| 'Transformation'
-	| 'Filtering'
-	| 'Combination'
-	| 'Multicasting'
-	| 'ErrorHandling'
-	| 'Utility'
-	| 'Conditional'
-	| 'Mathematical'
-	| 'JoinCreation'
-	| 'SetOperations'
-	| 'Concurrency'
-	| 'SingleValue'
-	| 'RateLimiting'
-	| 'Testing'
-	| 'Inspection'
-	| 'Timing'
-
 export interface CodeExample {
 	title: string
-	code: string
+	content: string
 }
 
-export interface Operator {
+export interface Topic {
 	name: string
-	family: OperatorFamily
-	signature: string
+	category: string
 	description: string
-	marble: string
 	examples: CodeExample[]
-	seeAlso: string[]
 	tags: string[]
+	visual?: string
+	definition?: string
+	seeAlso?: string[]
+	meta?: Record<string, string>
 }
 
 export interface Family {
-	name: OperatorFamily
+	name: string
 	description: string
-	operators: Operator[]
+	topics: Topic[]
+}
+
+export interface TutorConfig {
+	domainName: string
+	systemPromptTemplate: string
+	defaultCategory: string
+	defaultTopic: string
+	labels: {
+		category: string
+		topic: string
+		visual?: string
+		definition?: string
+	}
 }
