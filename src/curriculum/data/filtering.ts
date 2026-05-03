@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const filteringOperators: Topic[] = [
 	{
 		name:        "filter",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only values that satisfy a predicate function",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "first",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only the first value (or first matching a predicate), then completes",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "last",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only the last value (or last matching a predicate), then completes",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "find",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits the first value matching a predicate, then completes",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "single",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only if exactly one value is emitted, errors otherwise",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "take",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only the first N values",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "takeLast",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only the last N values",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "takeUntil",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits until a notifier Observable emits",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "takeWhile",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits while a predicate is true",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "skip",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Skips the first N values",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "skipLast",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Skips the last N values",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "skipUntil",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Skips until a notifier Observable emits",
 		visual:      '',
 		examples:    [
@@ -160,8 +160,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "skipWhile",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Skips while a predicate is true",
 		visual:      '',
 		examples:    [
@@ -173,8 +173,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "elementAt",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only the value at a specific index",
 		visual:      '',
 		examples:    [
@@ -186,8 +186,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "distinct",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only values that have never been emitted before",
 		visual:      '',
 		examples:    [
@@ -199,8 +199,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "distinctUntilChanged",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only when the current value differs from the previous",
 		visual:      '',
 		examples:    [
@@ -212,8 +212,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "distinctUntilKeyChanged",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits only when a specified key's value differs from previous",
 		visual:      '',
 		examples:    [
@@ -225,8 +225,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "debounce",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits after a specified time span determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -238,8 +238,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "debounceTime",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits after a specified time span of silence",
 		visual:      '',
 		examples:    [
@@ -251,8 +251,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "throttle",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits, then ignores values for a time span determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -264,8 +264,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "throttleTime",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits, then ignores values for a specified time span",
 		visual:      '',
 		examples:    [
@@ -277,8 +277,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "audit",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits the most recent value after a time span determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -290,8 +290,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "auditTime",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits the most recent value after a specified time span",
 		visual:      '',
 		examples:    [
@@ -303,8 +303,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "sample",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits the most recent value when a notifier Observable emits",
 		visual:      '',
 		examples:    [
@@ -316,8 +316,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "sampleTime",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits the most recent value at periodic time intervals",
 		visual:      '',
 		examples:    [
@@ -329,8 +329,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "sample",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits most recent source value whenever notifier emits",
 		visual:      '',
 		examples:    [
@@ -342,8 +342,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "sampleTime",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Emits most recent source value at periodic intervals",
 		visual:      '',
 		examples:    [
@@ -355,8 +355,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "audit",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Ignores source values, emits most recent after duration from another Observable",
 		visual:      '',
 		examples:    [
@@ -368,8 +368,8 @@ export const filteringOperators: Topic[] = [
 	},
 	{
 		name:        "auditTime",
-		category:      'Filtering' as const,
-		definition:   '',
+		category:    'Filtering' as const,
+		definition:  '',
 		description: "Ignores source values, emits most recent after time period",
 		visual:      '',
 		examples:    [

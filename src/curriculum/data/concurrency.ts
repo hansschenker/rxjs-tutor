@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const concurrencyOperators: Topic[] = [
 	{
 		name:        "observeOn",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Controls the scheduler for downstream operators and subscription",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "subscribeOn",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Controls the scheduler for the Observable's subscription and unsubscription",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "mergeMap",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Flattens with configurable concurrency limit",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "concatMap",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Sequential execution (concurrency of 1)",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "switchMap",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Cancellation-based concurrency (only latest inner subscription)",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "exhaustMap",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Ignores new while busy (prevents concurrent inner subscriptions)",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "mergeAll",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Flattens with max concurrent subscriptions",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "concatAll",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Subscribes to inner Observables sequentially",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "switchAll",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Switches to latest, canceling previous",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const concurrencyOperators: Topic[] = [
 	},
 	{
 		name:        "exhaust",
-		category:      'Concurrency' as const,
-		definition:   '',
+		category:    'Concurrency' as const,
+		definition:  '',
 		description: "Ignores new inner Observables while one is active",
 		visual:      '',
 		examples:    [

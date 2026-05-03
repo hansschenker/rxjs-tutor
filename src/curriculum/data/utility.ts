@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const utilityOperators: Topic[] = [
 	{
 		name:        "tap",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Performs side effects for each emission without affecting the stream",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "tap",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Handles next, error, and complete notifications separately",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "delay",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Delays emission of all values by a specified time",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "delayWhen",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Delays emissions by a duration determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "timeout",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Errors if Observable doesn't emit within specified time",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "timeInterval",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Emits time elapsed between consecutive emissions",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "timestamp",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Wraps each value with a timestamp",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "subscribeOn",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Controls which scheduler is used when subscribing",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "observeOn",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Controls which scheduler is used for emitting notifications",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "repeat",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Resubscribes to source Observable a specified number of times",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "repeatWhen",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Resubscribes based on custom logic using a notifier Observable",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "materialize",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Converts Observable emissions into Notification objects",
 		visual:      '',
 		examples:    [
@@ -160,8 +160,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "dematerialize",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Converts Notification objects back into emissions",
 		visual:      '',
 		examples:    [
@@ -173,8 +173,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "toArray",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Collects all emissions into an array, emitted when source completes",
 		visual:      '',
 		examples:    [
@@ -186,8 +186,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "finalize",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Executes callback when Observable completes, errors, or is unsubscribed",
 		visual:      '',
 		examples:    [
@@ -199,8 +199,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "connect",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Manually starts execution of a ConnectableObservable",
 		visual:      '',
 		examples:    [
@@ -212,8 +212,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "defaultIfEmpty",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Emits a default value if source completes without emitting",
 		visual:      '',
 		examples:    [
@@ -225,8 +225,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "every",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Emits true/false based on whether all values satisfy a predicate",
 		visual:      '',
 		examples:    [
@@ -238,8 +238,8 @@ export const utilityOperators: Topic[] = [
 	},
 	{
 		name:        "isEmpty",
-		category:      'Utility' as const,
-		definition:   '',
+		category:    'Utility' as const,
+		definition:  '',
 		description: "Emits true if source completes without emitting, false otherwise",
 		visual:      '',
 		examples:    [

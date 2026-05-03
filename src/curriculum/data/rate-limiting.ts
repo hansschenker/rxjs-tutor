@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const rateLimitingOperators: Topic[] = [
 	{
 		name:        "throttle",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Emits, then ignores values for a duration determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "throttleTime",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Emits, then ignores values for a specified time duration",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "auditTime",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Ignores values, then emits the most recent after a time period",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "audit",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Ignores values, then emits most recent after duration from another Observable",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "debounce",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Emits after a silence period determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "debounceTime",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Emits after a specified silence period (no emissions)",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "sample",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Emits the most recent value when a notifier Observable emits",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "sampleTime",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Emits the most recent value at periodic time intervals",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const rateLimitingOperators: Topic[] = [
 	},
 	{
 		name:        "throttleTime",
-		category:      'RateLimiting' as const,
-		definition:   '',
+		category:    'RateLimiting' as const,
+		definition:  '',
 		description: "Advanced throttling with leading/trailing edge control",
 		visual:      '',
 		examples:    [

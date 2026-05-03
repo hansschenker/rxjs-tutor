@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const conditionalOperators: Topic[] = [
 	{
 		name:        "every",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Tests if all emitted values satisfy a predicate",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "find",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Emits the first value that satisfies a predicate, then completes",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "findIndex",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Emits the index of the first value satisfying a predicate",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "isEmpty",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Emits true if source completes without emitting, false otherwise",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "defaultIfEmpty",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Emits a default value if the source completes without emitting",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "iif",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Subscribes to one of two Observables based on a condition evaluated at subscription time",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "throwIfEmpty",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Throws an error if the source completes without emitting any values",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const conditionalOperators: Topic[] = [
 	},
 	{
 		name:        "sequenceEqual",
-		category:      'Conditional' as const,
-		definition:   '',
+		category:    'Conditional' as const,
+		definition:  '',
 		description: "Compares two Observables to see if they emit the same sequence",
 		visual:      '',
 		examples:    [

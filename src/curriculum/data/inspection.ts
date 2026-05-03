@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const inspectionOperators: Topic[] = [
 	{
 		name:        "tap",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Performs side effects for notifications (next, error, complete) without affecting stream",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "tap",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Separate handlers for next, error, and complete",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "finalize",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Executes callback when Observable completes, errors, or is unsubscribed",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "timeInterval",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Wraps each emission with time elapsed since previous emission",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "timestamp",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Wraps each emission with current timestamp",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "delay",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Delays emissions (useful for observing timing)",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "materialize",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Converts emissions into Notification objects for inspection",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "dematerialize",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Converts Notification objects back to normal emissions",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "tap",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Log values, errors, and completion",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const inspectionOperators: Topic[] = [
 	},
 	{
 		name:        "tap",
-		category:      'Inspection' as const,
-		definition:   '',
+		category:    'Inspection' as const,
+		definition:  '',
 		description: "Inspect values during debugging",
 		visual:      '',
 		examples:    [

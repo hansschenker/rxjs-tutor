@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const testingOperators: Topic[] = [
 	{
 		name:        "TestScheduler",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Virtual time scheduler for testing without real delays",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "VirtualTimeScheduler",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Alternative virtual time implementation",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "AnimationFrameScheduler",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "For testing animation-related streams",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "expectObservable",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Assert Observable emissions match marble diagram",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "expectSubscriptions",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Verify subscription timing",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "hot",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Create hot Observable from marble diagram",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "cold",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Create cold Observable from marble diagram",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "flush",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Trigger all scheduled actions",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "delay",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Test timing with virtual time",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "timeout",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Test timeout scenarios",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "timeInterval",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Verify emission intervals",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const testingOperators: Topic[] = [
 	},
 	{
 		name:        "timestamp",
-		category:      'Testing' as const,
-		definition:   '',
+		category:    'Testing' as const,
+		definition:  '',
 		description: "Verify emission timestamps",
 		visual:      '',
 		examples:    [

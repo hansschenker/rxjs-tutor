@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const errorHandlingOperators: Topic[] = [
 	{
 		name:        "catchError",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Catches errors and returns a new Observable or throws a new error",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "onErrorResumeNext",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Continues with next Observable when an error occurs, ignoring the error",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "retry",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Resubscribes to source Observable on error, with optional count",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "retryWhen",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Resubscribes based on custom logic using a notifier Observable",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "finalize",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Executes a callback when Observable completes or errors (cleanup)",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "tap",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Performs side effects for errors without affecting the stream",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "throwError",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Creates an Observable that immediately emits an error",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const errorHandlingOperators: Topic[] = [
 	},
 	{
 		name:        "throwIfEmpty",
-		category:      'ErrorHandling' as const,
-		definition:   '',
+		category:    'ErrorHandling' as const,
+		definition:  '',
 		description: "Emits error if source completes without emitting any values",
 		visual:      '',
 		examples:    [

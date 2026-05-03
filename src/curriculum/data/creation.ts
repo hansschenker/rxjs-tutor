@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const creationOperators: Topic[] = [
 	{
 		name:        "of",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable that emits a sequence of provided values synchronously",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "from",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Converts various data sources (arrays, promises, iterables) into Observables",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "fromEvent",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable from DOM events or Node.js EventEmitter events",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "fromEventPattern",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable from an arbitrary API for registering event handlers",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "range",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Emits a sequence of numbers within a specified range",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "generate",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Generates values using a loop similar to a traditional for loop",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "interval",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable that emits sequential numbers at specified time intervals",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "timer",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable that emits after a delay and optionally at regular intervals",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "defer",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable only when subscribed to, deferring creation logic",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "ajax",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable for Ajax HTTP requests",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "empty",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable that immediately completes",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "throwError",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable that immediately emits an error",
 		visual:      '',
 		examples:    [
@@ -160,8 +160,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "never",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "Creates an Observable that never emits values or completes",
 		visual:      '',
 		examples:    [
@@ -173,8 +173,8 @@ export const creationOperators: Topic[] = [
 	},
 	{
 		name:        "Observable.create",
-		category:      'Creation' as const,
-		definition:   '',
+		category:    'Creation' as const,
+		definition:  '',
 		description: "/ new Observable(): Creates a custom Observable with complete control over emissions",
 		visual:      '',
 		examples:    [

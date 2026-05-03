@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const setOperationsOperators: Topic[] = [
 	{
 		name:        "distinct",
-		category:      'SetOperations' as const,
-		definition:   '',
+		category:    'SetOperations' as const,
+		definition:  '',
 		description: "Emits only values that have never been emitted before (entire history)",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const setOperationsOperators: Topic[] = [
 	},
 	{
 		name:        "distinctUntilChanged",
-		category:      'SetOperations' as const,
-		definition:   '',
+		category:    'SetOperations' as const,
+		definition:  '',
 		description: "Emits only when the current value differs from the previous",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const setOperationsOperators: Topic[] = [
 	},
 	{
 		name:        "distinctUntilKeyChanged",
-		category:      'SetOperations' as const,
-		definition:   '',
+		category:    'SetOperations' as const,
+		definition:  '',
 		description: "Emits only when a specified object key's value changes",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const setOperationsOperators: Topic[] = [
 	},
 	{
 		name:        "sequenceEqual",
-		category:      'SetOperations' as const,
-		definition:   '',
+		category:    'SetOperations' as const,
+		definition:  '',
 		description: "Compares two Observables to determine if they emit the same sequence",
 		visual:      '',
 		examples:    [

@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const multicastingOperators: Topic[] = [
 	{
 		name:        "share",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Shares source Observable among multiple subscribers using a Subject",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "shareReplay",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Shares and replays specified number of emissions to new subscribers",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "multicast",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Multicasts using a provided Subject or Subject factory",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "publish",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Returns a ConnectableObservable that shares source execution",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "publishReplay",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Returns ConnectableObservable that replays emissions",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "publishLast",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Returns ConnectableObservable that emits only the last value",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "publishBehavior",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Returns ConnectableObservable with an initial value",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "connect",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Manually initiates execution of a ConnectableObservable",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const multicastingOperators: Topic[] = [
 	},
 	{
 		name:        "refCount",
-		category:      'Multicasting' as const,
-		definition:   '',
+		category:    'Multicasting' as const,
+		definition:  '',
 		description: "Automatically manages connections based on subscriber count",
 		visual:      '',
 		examples:    [

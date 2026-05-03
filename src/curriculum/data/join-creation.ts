@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const joinCreationOperators: Topic[] = [
 	{
 		name:        "buffer",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Collects source values into arrays, emitted when notifier Observable emits",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferToggle",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Buffers using opening Observable and closing Observable factory",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferWhen",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Buffers using closing selector function",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferCount",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Buffers a specified number of values",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferTime",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Buffers values for a specified time duration",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "window",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Groups source values into nested Observables based on notifier",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "windowToggle",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Windows using opening Observable and closing Observable factory",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "windowWhen",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Windows using closing selector function",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "windowCount",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Groups values into nested Observables of specified count",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "windowTime",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Groups values into nested Observables over time duration",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "combineLatestWith",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Combines with other Observables, emitting arrays on any source emission",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "zipWith",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Combines with other Observables in strict sequential pairs",
 		visual:      '',
 		examples:    [
@@ -160,8 +160,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "mergeWith",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Merges with other Observables concurrently",
 		visual:      '',
 		examples:    [
@@ -173,8 +173,8 @@ export const joinCreationOperators: Topic[] = [
 	},
 	{
 		name:        "concatWith",
-		category:      'JoinCreation' as const,
-		definition:   '',
+		category:    'JoinCreation' as const,
+		definition:  '',
 		description: "Concatenates with other Observables sequentially",
 		visual:      '',
 		examples:    [

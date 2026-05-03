@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const mathematicalOperators: Topic[] = [
 	{
 		name:        "count",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "Counts the number of emissions and emits the total when source completes",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "max",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "Emits the maximum value when source completes",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "min",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "Emits the minimum value when source completes",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "reduce",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "Applies accumulator function and emits final result when source completes",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "sum",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "(Custom) Calculates sum of all numeric emissions",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "average",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "(Custom) Calculates average of all numeric emissions",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "max",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "Finds maximum using custom comparison function",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const mathematicalOperators: Topic[] = [
 	},
 	{
 		name:        "min",
-		category:      'Mathematical' as const,
-		definition:   '',
+		category:    'Mathematical' as const,
+		definition:  '',
 		description: "Finds minimum using custom comparison function",
 		visual:      '',
 		examples:    [

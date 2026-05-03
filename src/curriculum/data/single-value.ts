@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const singleValueOperators: Topic[] = [
 	{
 		name:        "first",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits only the first value (or first matching a predicate), then completes",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "last",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits only the last value (or last matching a predicate) when source completes",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "elementAt",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits the value at a specified index position",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "find",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits the first value that satisfies a predicate, then completes",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "single",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits only if exactly one value is emitted; errors if zero or multiple values",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "first",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits default if stream completes without matching value",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "last",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits default if stream completes without matching value",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const singleValueOperators: Topic[] = [
 	},
 	{
 		name:        "elementAt",
-		category:      'SingleValue' as const,
-		definition:   '',
+		category:    'SingleValue' as const,
+		definition:  '',
 		description: "Emits default if index is out of bounds",
 		visual:      '',
 		examples:    [

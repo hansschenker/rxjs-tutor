@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const transformationOperators: Topic[] = [
 	{
 		name:        "map",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Applies a projection function to each emitted value",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "mapTo",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Maps every emission to a constant value",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "pluck",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Extracts nested property values from objects",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "mergeMap",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Projects each value to an Observable and flattens all into one stream",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "switchMap",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Projects to Observable, canceling previous inner subscriptions on new emissions",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "concatMap",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Projects to Observable, queuing inner subscriptions sequentially",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "exhaustMap",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Projects to Observable, ignoring new emissions while inner Observable is active",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "scan",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Accumulates values over time, emitting each intermediate result",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "reduce",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Accumulates all values and emits a single final result when source completes",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "expand",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Recursively projects each value to an Observable and flattens",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "buffer",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Collects values into arrays based on a notifier Observable",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferCount",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Collects values into arrays of a specified size",
 		visual:      '',
 		examples:    [
@@ -160,8 +160,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferTime",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Collects values into arrays over time intervals",
 		visual:      '',
 		examples:    [
@@ -173,8 +173,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferToggle",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Collects values using opening and closing Observables",
 		visual:      '',
 		examples:    [
@@ -186,8 +186,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "bufferWhen",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Collects values using a factory function for closing Observables",
 		visual:      '',
 		examples:    [
@@ -199,8 +199,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "window",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Groups values into nested Observables based on a notifier",
 		visual:      '',
 		examples:    [
@@ -212,8 +212,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "windowCount",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Groups values into nested Observables of a specified size",
 		visual:      '',
 		examples:    [
@@ -225,8 +225,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "windowTime",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Groups values into nested Observables over time intervals",
 		visual:      '',
 		examples:    [
@@ -238,8 +238,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "windowToggle",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Groups values using opening and closing Observables",
 		visual:      '',
 		examples:    [
@@ -251,8 +251,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "windowWhen",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Groups values using a factory function for closing Observables",
 		visual:      '',
 		examples:    [
@@ -264,8 +264,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "mergeScan",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Combines scan and mergeMap for stateful async transformations",
 		visual:      '',
 		examples:    [
@@ -277,8 +277,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "pairwise",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Emits the previous and current values as a pair",
 		visual:      '',
 		examples:    [
@@ -290,8 +290,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "partition",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Splits source Observable into two based on a predicate",
 		visual:      '',
 		examples:    [
@@ -303,8 +303,8 @@ export const transformationOperators: Topic[] = [
 	},
 	{
 		name:        "groupBy",
-		category:      'Transformation' as const,
-		definition:   '',
+		category:    'Transformation' as const,
+		definition:  '',
 		description: "Groups emissions by key, creating nested Observables",
 		visual:      '',
 		examples:    [

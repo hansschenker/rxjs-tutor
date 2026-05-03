@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const combinationOperators: Topic[] = [
 	{
 		name:        "merge",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Flattens multiple Observables into one by blending their emissions",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "concat",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Emits values from each Observable sequentially, one after another",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "race",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Emits values from the first Observable to emit, unsubscribing from others",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "forkJoin",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Waits for all Observables to complete, then emits final values as an array",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "combineLatest",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Combines latest values from all Observables whenever any emits",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "combineLatestAll",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Flattens higher-order Observable using combineLatest strategy",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "withLatestFrom",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Combines source with latest values from other Observables",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "zip",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Combines values from Observables in strict sequential pairs",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "mergeAll",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Flattens higher-order Observable by merging inner Observables",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "concatAll",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Flattens higher-order Observable by concatenating inner Observables",
 		visual:      '',
 		examples:    [
@@ -134,8 +134,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "switchAll",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Flattens higher-order Observable by switching to latest inner Observable",
 		visual:      '',
 		examples:    [
@@ -147,8 +147,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "exhaust",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Flattens higher-order Observable by ignoring new inner Observables while one is active",
 		visual:      '',
 		examples:    [
@@ -160,8 +160,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "startWith",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Prepends specified values before the source begins emitting",
 		visual:      '',
 		examples:    [
@@ -173,8 +173,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "endWith",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Appends specified values after the source completes",
 		visual:      '',
 		examples:    [
@@ -186,8 +186,8 @@ export const combinationOperators: Topic[] = [
 	},
 	{
 		name:        "pairwise",
-		category:      'Combination' as const,
-		definition:   '',
+		category:    'Combination' as const,
+		definition:  '',
 		description: "Groups consecutive emissions into pairs [previous, current]",
 		visual:      '',
 		examples:    [

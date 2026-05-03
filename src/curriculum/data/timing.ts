@@ -4,8 +4,8 @@ import type { Topic } from '../types'
 export const timingOperators: Topic[] = [
 	{
 		name:        "delay",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Delays emission of all values by a specified time",
 		visual:      '',
 		examples:    [
@@ -17,8 +17,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "delayWhen",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Delays emissions by a duration determined by another Observable",
 		visual:      '',
 		examples:    [
@@ -30,8 +30,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "timeout",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Errors if Observable doesn't emit within specified time",
 		visual:      '',
 		examples:    [
@@ -43,8 +43,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "timeoutWith",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Switches to fallback Observable on timeout",
 		visual:      '',
 		examples:    [
@@ -56,8 +56,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "timeInterval",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Wraps each emission with elapsed time since previous emission",
 		visual:      '',
 		examples:    [
@@ -69,8 +69,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "timestamp",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Wraps each emission with current timestamp",
 		visual:      '',
 		examples:    [
@@ -82,8 +82,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "subscribeOn",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Controls scheduler used for subscription",
 		visual:      '',
 		examples:    [
@@ -95,8 +95,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "observeOn",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Controls scheduler used for emissions",
 		visual:      '',
 		examples:    [
@@ -108,8 +108,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "interval",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Emits sequential numbers at specified intervals",
 		visual:      '',
 		examples:    [
@@ -121,8 +121,8 @@ export const timingOperators: Topic[] = [
 	},
 	{
 		name:        "timer",
-		category:      'Timing' as const,
-		definition:   '',
+		category:    'Timing' as const,
+		definition:  '',
 		description: "Emits after delay and optionally at intervals",
 		visual:      '',
 		examples:    [
