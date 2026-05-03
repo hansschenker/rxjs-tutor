@@ -4,6 +4,8 @@ import { action$ } from '../mvu/store'
 import { topics } from '../curriculum/index'
 import { navigateTo } from '../router'
 
+let _lastRenderedTopic: Topic | null = undefined as unknown as Topic | null
+
 function escapeHtml(s: string): string {
 	return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 }
@@ -16,12 +18,16 @@ function renderEmpty(config: TutorConfig): string {
 
 function renderExamples(topic: Topic): string {
 	if (!topic.examples.length) return ''
-	return topic.examples.map(ex => `
+	const items = topic.examples.map(ex => `
     <div class="reference-example">
       <div class="reference-example__title">${escapeHtml(ex.title)}</div>
       <pre class="reference-code"><code>${escapeHtml(ex.content)}</code></pre>
     </div>
   `).join('')
+	return `<div class="reference-section">
+    <div class="reference-label">Examples</div>
+    ${items}
+  </div>`
 }
 
 function renderSeeAlso(topic: Topic): string {
@@ -45,6 +51,8 @@ function renderMeta(meta: Record<string, string>): string {
 }
 
 export function renderReference(topic: Topic | null, config: TutorConfig): void {
+	if (topic === _lastRenderedTopic) return
+	_lastRenderedTopic = topic
 	const el = document.getElementById('reference')!
 
 	if (!topic) { el.innerHTML = renderEmpty(config); return }
@@ -67,10 +75,7 @@ export function renderReference(topic: Topic | null, config: TutorConfig): void 
       <pre class="reference-marble">${escapeHtml(topic.visual)}</pre>
     </div>` : ''}
 
-    <div class="reference-section">
-      <div class="reference-label">Examples</div>
-      ${renderExamples(topic)}
-    </div>
+    ${renderExamples(topic)}
 
     ${topic.meta ? renderMeta(topic.meta) : ''}
 
