@@ -1,5 +1,5 @@
 // src/router.ts
-import { fromEvent, startWith, EMPTY } from 'rxjs'
+import { fromEvent, startWith, EMPTY, Subscription } from 'rxjs'
 import { map, distinctUntilChanged } from 'rxjs'
 import { topics } from './curriculum/index'
 import { action$ } from './mvu/store'
@@ -40,8 +40,8 @@ export const route$ = isBrowser
 	)
 	: EMPTY
 
-export function initRouter(config: TutorConfig): void {
-	route$.subscribe(route => {
+export function initRouter(config: TutorConfig): Subscription {
+	return route$.subscribe(route => {
 		if (route.searchQuery !== null) {
 			action$.next({ type: 'SEARCH_CHANGED', query: route.searchQuery })
 			return
@@ -54,7 +54,14 @@ export function initRouter(config: TutorConfig): void {
 			if (t) action$.next({ type: 'TOPIC_SELECTED', topic: t })
 		}
 		if (!route.category && !route.topic) {
-			navigateTo(config.defaultCategory.toLowerCase(), config.defaultTopic)
+			const defaultTopic = topics.find(
+				t => t.name === config.defaultTopic &&
+					 t.category.toLowerCase() === config.defaultCategory.toLowerCase()
+			)
+			if (defaultTopic) {
+				action$.next({ type: 'TOPIC_SELECTED', topic: defaultTopic })
+				navigateTo(defaultTopic.category, defaultTopic.name)
+			}
 		}
 	})
 }
