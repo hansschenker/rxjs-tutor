@@ -3,22 +3,22 @@ import { describe, test, expect } from 'vitest'
 import { parseRoute } from '../src/router'
 
 describe('parseRoute', () => {
-	test('parses family + operator route', () => {
+	test('parses category + topic route', () => {
 		const r = parseRoute('/transformation/switchMap')
-		expect(r.family).toBe('transformation')
-		expect(r.operator).toBe('switchMap')
+		expect(r.category).toBe('transformation')
+		expect(r.topic).toBe('switchMap')
 	})
 
-	test('parses family-only route', () => {
+	test('parses category-only route', () => {
 		const r = parseRoute('/creation')
-		expect(r.family).toBe('creation')
-		expect(r.operator).toBeNull()
+		expect(r.category).toBe('creation')
+		expect(r.topic).toBeNull()
 	})
 
 	test('parses root route', () => {
 		const r = parseRoute('/')
-		expect(r.family).toBeNull()
-		expect(r.operator).toBeNull()
+		expect(r.category).toBeNull()
+		expect(r.topic).toBeNull()
 	})
 
 	test('extracts search query', () => {
