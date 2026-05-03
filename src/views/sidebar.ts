@@ -76,9 +76,10 @@ export function renderSidebar(filteredTopics: Topic[], state: AppState, config: 
 	}
 
 	el.querySelectorAll<HTMLElement>('[data-toggle-category]').forEach(header => {
-		header.addEventListener('click', () =>
-			action$.next({ type: 'CATEGORY_TOGGLED', category: header.dataset.toggleCategory! })
-		)
+		header.addEventListener('click', () => {
+			const category = header.dataset.toggleCategory
+			if (category) action$.next({ type: 'CATEGORY_TOGGLED', category })
+		})
 	})
 
 	el.querySelectorAll<HTMLElement>('[data-op-name]').forEach(span => {
