@@ -14,12 +14,13 @@ export interface Topic {
 	visual?: string
 	definition?: string
 	seeAlso?: string[]
+	/** Domain-specific extension fields rendered as-is in the reference panel. */
 	meta?: Record<string, string>
 }
 
 export interface Family {
 	name: string
-	description: string
+	description?: string
 	topics: Topic[]
 }
 
