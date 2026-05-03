@@ -3,7 +3,7 @@ import { Subject, combineLatest, of } from 'rxjs'
 import { scan, startWith, shareReplay, map, distinctUntilChanged, filter } from 'rxjs'
 import { reducer } from './reducer'
 import { initialState } from './model'
-import { operators } from '../curriculum/index'
+import { topics } from '../curriculum/index'
 import type { Action } from './actions'
 
 export const action$ = new Subject<Action>()
@@ -14,13 +14,11 @@ export const state$ = action$.pipe(
 	shareReplay(1),
 )
 
-// ofType — narrows and filters the action stream to a single action type
 export const ofType = <K extends Action['type']>(type: K) =>
 	filter((a: Action): a is Extract<Action, { type: K }> => a.type === type)
 
-// Derived streams
-export const selectedOperator$ = state$.pipe(
-	map(s => s.selectedOperator),
+export const selectedTopic$ = state$.pipe(
+	map(s => s.selectedTopic),
 	distinctUntilChanged(),
 )
 
@@ -39,12 +37,12 @@ export const sidebarExpanded$ = state$.pipe(
 	distinctUntilChanged(),
 )
 
-export const filteredOperators$ = combineLatest([of(operators), searchQuery$]).pipe(
-	map(([ops, q]) => q
-		? ops.filter(op =>
-				op.name.toLowerCase().includes(q.toLowerCase()) ||
-				op.tags.some(t => t.includes(q.toLowerCase()))
+export const filteredTopics$ = combineLatest([of(topics), searchQuery$]).pipe(
+	map(([ts, q]) => q
+		? ts.filter(t =>
+				t.name.toLowerCase().includes(q.toLowerCase()) ||
+				t.tags.some(tag => tag.includes(q.toLowerCase()))
 			)
-		: ops
+		: ts
 	),
 )
