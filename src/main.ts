@@ -2,33 +2,32 @@
 import './style.css'
 import { combineLatest, filter } from 'rxjs'
 import { withLatestFrom } from 'rxjs'
-import { action$, state$, filteredOperators$, selectedOperator$, chatState$, ofType } from './mvu/store'
+import { action$, state$, filteredTopics$, selectedTopic$, chatState$, ofType } from './mvu/store'
 import { renderSidebar } from './views/sidebar'
 import { renderReference } from './views/reference'
 import { renderChat, appendChatChunk } from './views/chat'
 import { chatEffect$ } from './effects/chat.effects'
 import { initRouter } from './router'
+import { config } from './tutor.config'
 
-// ── Sidebar ─────────────────────────────────────────────────────────
-combineLatest([filteredOperators$, state$]).subscribe(
-	([ops, state]) => renderSidebar(ops, state)
+// ── Sidebar ──────────────────────────────────────────────────────────
+combineLatest([filteredTopics$, state$]).subscribe(
+	([ts, state]) => renderSidebar(ts, state, config)
 )
 
-// ── Reference panel ─────────────────────────────────────────────────
-selectedOperator$.subscribe(op => renderReference(op))
+// ── Reference panel ──────────────────────────────────────────────────
+selectedTopic$.subscribe(t => renderReference(t, config))
 
 // ── Chat panel ───────────────────────────────────────────────────────
-// Full re-render on structural changes
 action$.pipe(
-	filter(a => ['OPERATOR_SELECTED', 'CHAT_MESSAGE_SENT', 'CHAT_RESPONSE_COMPLETE', 'CHAT_ERROR'].includes(a.type)),
-	withLatestFrom(combineLatest([chatState$, selectedOperator$]))
-).subscribe(([_action, [chat, op]]) => renderChat(chat, op))
+	filter(a => ['TOPIC_SELECTED', 'CHAT_MESSAGE_SENT', 'CHAT_RESPONSE_COMPLETE', 'CHAT_ERROR'].includes(a.type)),
+	withLatestFrom(combineLatest([chatState$, selectedTopic$]))
+).subscribe(([_action, [chat, t]]) => renderChat(chat, t, config))
 
-// In-place chunk append during streaming
 action$.pipe(ofType('CHAT_CHUNK_RECEIVED')).subscribe(a => appendChatChunk(a.chunk))
 
-// ── Effects ──────────────────────────────────────────────────────────
+// ── Effects ───────────────────────────────────────────────────────────
 chatEffect$.subscribe(action$)
 
-// ── Router ───────────────────────────────────────────────────────────
-initRouter()
+// ── Router ────────────────────────────────────────────────────────────
+initRouter(config)
