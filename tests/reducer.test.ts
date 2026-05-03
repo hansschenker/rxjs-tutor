@@ -2,15 +2,15 @@
 import { describe, test, expect } from 'vitest'
 import { reducer } from '../src/mvu/reducer'
 import { initialState } from '../src/mvu/model'
-import type { Operator } from '../src/curriculum/types'
+import type { Topic } from '../src/curriculum/types'
 
-function mockOperator(name: string): Operator {
+function mockTopic(name: string): Topic {
 	return {
 		name,
-		family:      'Transformation',
-		signature:   '',
+		category:    'Transformation',
+		definition:  '',
 		description: `${name} description`,
-		marble:      '',
+		visual:      '',
 		examples:    [],
 		seeAlso:     [],
 		tags:        [],
@@ -18,25 +18,23 @@ function mockOperator(name: string): Operator {
 }
 
 describe('reducer', () => {
-	test('OPERATOR_SELECTED sets operator and resets chat history', () => {
-		const op    = mockOperator('switchMap')
-		const state = reducer(initialState, { type: 'OPERATOR_SELECTED', operator: op })
-		expect(state.selectedOperator).toEqual(op)
+	test('TOPIC_SELECTED sets topic and resets chat history', () => {
+		const t     = mockTopic('switchMap')
+		const state = reducer(initialState, { type: 'TOPIC_SELECTED', topic: t })
+		expect(state.selectedTopic).toEqual(t)
+		expect(state.selectedCategory).toBe('Transformation')
 		expect(state.chat.history).toEqual([])
 		expect(state.chat.loading).toBe(false)
 	})
 
-	test('FAMILY_TOGGLED expands a collapsed family', () => {
-		const state = reducer(initialState, { type: 'FAMILY_TOGGLED', family: 'Transformation' })
+	test('CATEGORY_TOGGLED expands a collapsed category', () => {
+		const state = reducer(initialState, { type: 'CATEGORY_TOGGLED', category: 'Transformation' })
 		expect(state.sidebarExpanded.has('Transformation')).toBe(true)
 	})
 
-	test('FAMILY_TOGGLED collapses an already-expanded family', () => {
-		const expanded = {
-			...initialState,
-			sidebarExpanded: new Set<import('../src/curriculum/types').OperatorFamily>(['Transformation']),
-		}
-		const state = reducer(expanded, { type: 'FAMILY_TOGGLED', family: 'Transformation' })
+	test('CATEGORY_TOGGLED collapses an already-expanded category', () => {
+		const expanded = { ...initialState, sidebarExpanded: new Set<string>(['Transformation']) }
+		const state    = reducer(expanded, { type: 'CATEGORY_TOGGLED', category: 'Transformation' })
 		expect(state.sidebarExpanded.has('Transformation')).toBe(false)
 	})
 
