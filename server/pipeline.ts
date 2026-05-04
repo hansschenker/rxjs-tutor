@@ -1,5 +1,5 @@
 // server/pipeline.ts
-import { Router } from 'express'
+import { Router, Request, Response, NextFunction } from 'express'
 import multer from 'multer'
 import Anthropic from '@anthropic-ai/sdk'
 import { existsSync, readFileSync, mkdirSync, readdirSync } from 'fs'
@@ -56,15 +56,21 @@ pipelineRouter.get('/domains', (_req, res) => {
 })
 
 // POST /api/pipeline/upload/:domain
-pipelineRouter.post('/pipeline/upload/:domain', upload.array('sources'), (req, res) => {
-	const domainId = (req.params as { domain: string }).domain
-	if (!domainStore.getDomain(domainId)) {
-		res.status(404).json({ error: 'domain not found' })
-		return
-	}
-	const files = (req.files as Express.Multer.File[]) ?? []
-	res.json({ uploaded: files.map(f => f.originalname) })
-})
+pipelineRouter.post(
+	'/pipeline/upload/:domain',
+	(req: Request, res: Response, next: NextFunction) => {
+		if (!domainStore.getDomain((req.params as { domain: string }).domain)) {
+			res.status(404).json({ error: 'domain not found' })
+			return
+		}
+		next()
+	},
+	upload.array('sources'),
+	(req: Request, res: Response) => {
+		const files = (req.files as Express.Multer.File[]) ?? []
+		res.json({ uploaded: files.map(f => f.originalname) })
+	},
+)
 
 // POST /api/pipeline/run/:domain
 pipelineRouter.post('/pipeline/run/:domain', async (req, res) => {
