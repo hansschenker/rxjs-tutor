@@ -1,10 +1,9 @@
 // src/main.ts
 import './style.css'
-import { combineLatest, filter, take } from 'rxjs'
-import { withLatestFrom } from 'rxjs'
+import { combineLatest, filter, take, withLatestFrom } from 'rxjs'
 import {
 	action$, state$, filteredTopics$, families$,
-	selectedTopic$, chatState$, tutorConfig$, curriculumStatus$, ofType,
+	selectedTopic$, chatState$, tutorConfig$, curriculumStatus$, topics$, ofType,
 } from './mvu/store'
 import { renderSidebar }               from './views/sidebar'
 import { renderReference }             from './views/reference'
@@ -36,8 +35,8 @@ combineLatest([filteredTopics$, families$, state$, config$]).subscribe(
 )
 
 // ── Reference panel ──────────────────────────────────────────────────
-combineLatest([selectedTopic$, config$]).subscribe(
-	([t, config]) => renderReference(t, config)
+combineLatest([selectedTopic$, config$, topics$]).subscribe(
+	([t, config, allTopics]) => renderReference(t, config, allTopics)
 )
 
 // ── Chat panel ───────────────────────────────────────────────────────

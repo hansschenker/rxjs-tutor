@@ -1,7 +1,6 @@
 // src/views/reference.ts
 import type { Topic, TutorConfig } from '../curriculum/types'
 import { action$ } from '../mvu/store'
-import { topics } from '../curriculum/index'
 import { navigateTo } from '../router'
 
 let _lastRenderedTopic: Topic | null = undefined as unknown as Topic | null
@@ -50,7 +49,11 @@ function renderMeta(meta: Record<string, string>): string {
   `).join('')
 }
 
-export function renderReference(topic: Topic | null, config: TutorConfig): void {
+export function renderReference(
+	topic:     Topic | null,
+	config:    TutorConfig,
+	allTopics: Topic[],
+): void {
 	if (topic === _lastRenderedTopic) return
 	_lastRenderedTopic = topic
 	const el = document.getElementById('reference')!
@@ -85,7 +88,7 @@ export function renderReference(topic: Topic | null, config: TutorConfig): void 
 	el.querySelectorAll<HTMLElement>('[data-seealso]').forEach(chip => {
 		chip.addEventListener('click', () => {
 			const name   = chip.dataset.seealso!
-			const target = topics.find(t => t.name === name)
+			const target = allTopics.find(t => t.name === name)
 			if (target) {
 				action$.next({ type: 'TOPIC_SELECTED', topic: target })
 				navigateTo(target.category, target.name)
