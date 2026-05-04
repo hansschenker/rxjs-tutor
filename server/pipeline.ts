@@ -36,6 +36,10 @@ pipelineRouter.post('/domains', (req, res) => {
 		res.status(400).json({ error: 'id, name, and description are required' })
 		return
 	}
+	if (!/^[a-z0-9_-]+$/i.test(id)) {
+		res.status(400).json({ error: 'id must contain only letters, digits, hyphens, and underscores' })
+		return
+	}
 	if (domainStore.getDomain(id)) {
 		res.status(409).json({ error: 'domain already exists' })
 		return
@@ -133,5 +137,9 @@ pipelineRouter.get('/domains/:domain/curriculum', (req, res) => {
 		res.status(404).json({ error: 'curriculum not found — run the pipeline first' })
 		return
 	}
-	res.json(JSON.parse(readFileSync(curriculumPath, 'utf-8')))
+	try {
+		res.json(JSON.parse(readFileSync(curriculumPath, 'utf-8')))
+	} catch {
+		res.status(500).json({ error: 'curriculum file is unreadable or malformed' })
+	}
 })
