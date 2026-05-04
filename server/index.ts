@@ -9,5 +9,5 @@ app.use(express.json())
 app.use('/api', chatRouter)
 app.use('/api', pipelineRouter)
 
-const PORT = 3001
+const PORT = Number(process.env['PORT'] ?? 3001)
 app.listen(PORT, () => console.log(`Server listening on :${PORT}`))

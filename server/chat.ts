@@ -28,6 +28,11 @@ export const chatRouter = Router()
 chatRouter.post('/chat', async (req, res) => {
 	const { topic, history, message, config } = req.body as ChatRequest
 
+	if (!topic || !history || !message || !config?.systemPromptTemplate) {
+		res.status(400).json({ error: 'Invalid request body' })
+		return
+	}
+
 	const systemPrompt = buildSystemPrompt(
 		config.systemPromptTemplate,
 		topic,
