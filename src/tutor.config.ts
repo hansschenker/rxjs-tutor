@@ -1,5 +1,5 @@
 // src/tutor.config.ts
-import type { TutorConfig } from './curriculum/types'
+import type { TutorConfig } from './curriculum/types.js'
 
 export const config: TutorConfig = {
 	domainName: 'RxJS',
