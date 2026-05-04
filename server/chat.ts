@@ -1,5 +1,5 @@
 // server/chat.ts
-import express from 'express'
+import { Router } from 'express'
 import Anthropic from '@anthropic-ai/sdk'
 import type { Topic } from '../src/curriculum/types.js'
 
@@ -13,10 +13,7 @@ interface ChatRequest {
 	}
 }
 
-const app    = express()
 const client = new Anthropic({ apiKey: process.env['ANTHROPIC_API_KEY'] })
-
-app.use(express.json())
 
 function buildSystemPrompt(template: string, topic: Topic, domainName: string): string {
 	return template
@@ -26,7 +23,9 @@ function buildSystemPrompt(template: string, topic: Topic, domainName: string): 
 		.replace('{topicJson}',  JSON.stringify(topic, null, 2))
 }
 
-app.post('/api/chat', async (req, res) => {
+export const chatRouter = Router()
+
+chatRouter.post('/chat', async (req, res) => {
 	const { topic, history, message, config } = req.body as ChatRequest
 
 	const systemPrompt = buildSystemPrompt(
@@ -65,6 +64,3 @@ app.post('/api/chat', async (req, res) => {
 		res.end()
 	}
 })
-
-const PORT = 3001
-app.listen(PORT, () => console.log(`Chat proxy listening on :${PORT}`))
