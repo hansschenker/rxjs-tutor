@@ -1,10 +1,10 @@
 // src/mvu/store.ts
-import { Subject, combineLatest, of } from 'rxjs'
+import { Subject, combineLatest } from 'rxjs'
 import { scan, startWith, shareReplay, map, distinctUntilChanged, filter } from 'rxjs'
-import { reducer } from './reducer'
+import { reducer }      from './reducer'
 import { initialState } from './model'
-import { topics } from '../curriculum/index'
-import type { Action } from './actions'
+import type { Action }     from './actions'
+import type { TutorConfig } from '../curriculum/types'
 
 export const action$ = new Subject<Action>()
 
@@ -37,7 +37,27 @@ export const sidebarExpanded$ = state$.pipe(
 	distinctUntilChanged(),
 )
 
-export const filteredTopics$ = combineLatest([of(topics), searchQuery$]).pipe(
+export const topics$ = state$.pipe(
+	map(s => s.topics),
+	distinctUntilChanged(),
+)
+
+export const families$ = state$.pipe(
+	map(s => s.families),
+	distinctUntilChanged(),
+)
+
+export const tutorConfig$ = state$.pipe(
+	map(s => s.tutorConfig),
+	distinctUntilChanged(),
+)
+
+export const curriculumStatus$ = state$.pipe(
+	map(s => s.curriculumStatus),
+	distinctUntilChanged(),
+)
+
+export const filteredTopics$ = combineLatest([topics$, searchQuery$]).pipe(
 	map(([ts, q]) => q
 		? ts.filter(t =>
 				t.name.toLowerCase().includes(q.toLowerCase()) ||
@@ -46,3 +66,7 @@ export const filteredTopics$ = combineLatest([of(topics), searchQuery$]).pipe(
 		: ts
 	),
 )
+
+// Satisfy TypeScript: TutorConfig is imported but only used via state$ derivation above.
+// This explicit re-export keeps the import live without an unused-variable error.
+export type { TutorConfig }

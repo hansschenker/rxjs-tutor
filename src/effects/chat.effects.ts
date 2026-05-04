@@ -2,7 +2,6 @@
 import { Observable, of, endWith } from 'rxjs'
 import { exhaustMap, withLatestFrom, map, catchError } from 'rxjs'
 import { action$, ofType, state$ } from '../mvu/store'
-import { config } from '../tutor.config'
 import type { Action } from '../mvu/actions'
 
 function streamChunks(res: Response): Observable<string> {
@@ -50,6 +49,9 @@ export const chatEffect$ = action$.pipe(
 	withLatestFrom(state$),
 	exhaustMap(([action, state]) => {
 		if (!state.selectedTopic) return of<Action>({ type: 'CHAT_ERROR', message: 'No topic selected' })
+		if (!state.tutorConfig)   return of<Action>({ type: 'CHAT_ERROR', message: 'Curriculum not loaded' })
+
+		const tutorConfig = state.tutorConfig
 
 		return new Observable<Action>(observer => {
 			fetch('/api/chat', {
@@ -60,8 +62,8 @@ export const chatEffect$ = action$.pipe(
 					history: state.chat.history.slice(0, -2),
 					message: action.content,
 					config: {
-						domainName:             config.domainName,
-						systemPromptTemplate:   config.systemPromptTemplate,
+						domainName:           tutorConfig.domainName,
+						systemPromptTemplate: tutorConfig.systemPromptTemplate,
 					},
 				}),
 			})
