@@ -42,6 +42,7 @@ describe('writeCurriculumJson', () => {
 		const parsed = JSON.parse(readFileSync(join(tmpDir, 'curriculum.json'), 'utf-8'))
 		expect(parsed.domain).toBe('typescript')
 		expect(typeof parsed.generatedAt).toBe('string')
+		expect(new Date(parsed.generatedAt).getTime()).not.toBeNaN()
 		expect(parsed.tutorConfig.domainName).toBe('TypeScript')
 	})
 

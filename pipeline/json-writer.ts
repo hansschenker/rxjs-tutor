@@ -32,7 +32,7 @@ export function writeCurriculumJson(
 	for (const [category, rawTopics] of grouped) {
 		const categoryTopics = rawTopics.map(rawToTopic)
 		topics.push(...categoryTopics)
-		families.push({ name: category, description: '', topics: categoryTopics })
+		families.push({ name: category, description: '', topics: categoryTopics.map(t => ({ ...t })) })
 	}
 
 	const curriculum: CurriculumJson = {
