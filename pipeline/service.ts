@@ -5,7 +5,7 @@ import { loadSourceDocuments }       from './loader.js'
 import { extractTopics }             from './extractor.js'
 import { mergeTopics, groupByCategory } from './merger.js'
 import { buildTutorConfig }          from './types.js'
-import type { PipelineConfig, RawTopic } from './types.js'
+import type { PipelineConfig, RawTopic, ExtractionResult } from './types.js'
 import type { TutorConfig }          from '../src/curriculum/types.js'
 
 export interface PipelineResult {
@@ -19,7 +19,7 @@ export async function runPipeline(
 	client:     Anthropic,
 ): Promise<PipelineResult> {
 	const docs    = loadSourceDocuments(sourcesDir)
-	const results = []
+	const results: ExtractionResult[] = []
 	for (const doc of docs) {
 		const result = await extractTopics(doc, config, client)
 		results.push(result)
