@@ -63,7 +63,12 @@ pipelineRouter.get('/domains', (_req, res) => {
 pipelineRouter.post(
 	'/pipeline/upload/:domain',
 	(req: Request, res: Response, next: NextFunction) => {
-		if (!domainStore.getDomain((req.params as { domain: string }).domain)) {
+		const domainId = (req.params as { domain: string }).domain
+		if (!/^[a-z0-9_-]+$/i.test(domainId)) {
+			res.status(400).json({ error: 'invalid domain id' })
+			return
+		}
+		if (!domainStore.getDomain(domainId)) {
 			res.status(404).json({ error: 'domain not found' })
 			return
 		}
@@ -79,6 +84,10 @@ pipelineRouter.post(
 // POST /api/pipeline/run/:domain
 pipelineRouter.post('/pipeline/run/:domain', async (req, res) => {
 	const domainId = (req.params as { domain: string }).domain
+	if (!/^[a-z0-9_-]+$/i.test(domainId)) {
+		res.status(400).json({ error: 'invalid domain id' })
+		return
+	}
 	const domain   = domainStore.getDomain(domainId)
 	if (!domain) {
 		res.status(404).json({ error: 'domain not found' })
@@ -128,9 +137,14 @@ pipelineRouter.post('/pipeline/run/:domain', async (req, res) => {
 
 // GET /api/domains/:domain/curriculum
 pipelineRouter.get('/domains/:domain/curriculum', (req, res) => {
+	const domainParam = (req.params as { domain: string }).domain
+	if (!/^[a-z0-9_-]+$/i.test(domainParam)) {
+		res.status(400).json({ error: 'invalid domain id' })
+		return
+	}
 	const curriculumPath = join(
 		DATA_DIR, 'curriculum',
-		(req.params as { domain: string }).domain,
+		domainParam,
 		'curriculum.json',
 	)
 	if (!existsSync(curriculumPath)) {
