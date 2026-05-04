@@ -3,11 +3,8 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { readFileSync } from 'fs'
 import { join, resolve } from 'path'
-import { loadSourceDocuments } from './loader.js'
-import { extractTopics } from './extractor.js'
-import { mergeTopics, groupByCategory } from './merger.js'
 import { writeOutput } from './writer.js'
-import { buildTutorConfig } from './types.js'
+import { runPipeline } from './service.js'
 import type { PipelineConfig } from './types.js'
 
 async function run(): Promise<void> {
@@ -22,8 +19,6 @@ async function run(): Promise<void> {
 	)
 
 	const sourcesDir = join(resolve(configPath), '..', 'sources')
-	const docs       = loadSourceDocuments(sourcesDir)
-	console.log(`Loaded ${docs.length} source file(s): ${docs.map(d => d.filename).join(', ')}`)
 
 	const apiKey = process.env['ANTHROPIC_API_KEY']
 	if (!apiKey) {
@@ -32,23 +27,12 @@ async function run(): Promise<void> {
 	}
 	const client = new Anthropic({ apiKey })
 
-	const results = []
-	for (const doc of docs) {
-		console.log(`Extracting topics from ${doc.filename}…`)
-		const result = await extractTopics(doc, config, client)
-		console.log(`  → ${result.topics.length} topic(s) extracted`)
-		results.push(result)
-	}
+	console.log(`Running pipeline for domain: ${config.domain.name}`)
+	const result    = await runPipeline(config, sourcesDir, client)
+	const outputDir = resolve(config.output.dir)
 
-	const merged  = mergeTopics(results)
-	console.log(`Merged: ${merged.length} unique topic(s)`)
-
-	const grouped     = groupByCategory(merged)
-	const tutorConfig = buildTutorConfig(config)
-	const outputDir   = resolve(config.output.dir)
-
-	writeOutput(grouped, tutorConfig, outputDir)
-	console.log(`Done.`)
+	writeOutput(result.grouped, result.tutorConfig, outputDir)
+	console.log('Done.')
 }
 
 run().catch(err => {
