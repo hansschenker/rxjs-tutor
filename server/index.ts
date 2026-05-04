@@ -6,10 +6,6 @@ import { pipelineRouter } from './pipeline.js'
 const app = express()
 
 app.use(express.json())
-app.use((_req, res, next) => {
-	res.setHeader('Content-Security-Policy', "default-src 'none'; connect-src 'self' http://localhost:3001;")
-	next()
-})
 app.use('/api', chatRouter)
 app.use('/api', pipelineRouter)
 
