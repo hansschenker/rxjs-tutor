@@ -2,7 +2,7 @@
 
 Utility types are built-in generic types that transform existing types into new ones.
 
-## Module: Utility Types
+## Utility Types
 
 ### Partial
 Makes all properties of type T optional.

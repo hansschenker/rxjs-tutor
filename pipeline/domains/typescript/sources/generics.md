@@ -2,7 +2,7 @@
 
 Generics allow writing reusable code that works with multiple types while preserving type safety.
 
-## Module: Generics
+## Generics
 
 ### Generic Functions
 Functions parameterized by type, preserving the relationship between input and output types.

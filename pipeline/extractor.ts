@@ -50,8 +50,8 @@ export async function extractTopics(
 	const systemPrompt =
 		`You extract structured educational topics from source material. ` +
 		`Domain: ${config.domain.name}. ${config.domain.description}. ` +
-		`Use the domain's terminology for categories ` +
-		`(the category label is "${config.domain.labels.category}").`
+		`Set each topic's category to the actual subject group it belongs to ` +
+		`(e.g. "Utility Types", "Generics") — derive it from the section headings in the source.`
 
 	const response = await client.messages.create({
 		model:       config.extraction.model,
