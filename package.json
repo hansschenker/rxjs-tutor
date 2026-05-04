@@ -8,7 +8,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "migrate": "tsx scripts/migrate-markdown.ts",
-    "pipeline": "tsx pipeline/run.ts"
+    "pipeline": "tsx pipeline/run.ts",
+    "seed": "tsx scripts/seed-rxjs-domain.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
