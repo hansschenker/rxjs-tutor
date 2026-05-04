@@ -3,8 +3,6 @@ import type { Topic, TutorConfig } from '../curriculum/types'
 import { action$ } from '../mvu/store'
 import { navigateTo } from '../router'
 
-let _lastRenderedTopic: Topic | null = undefined as unknown as Topic | null
-
 function escapeHtml(s: string): string {
 	return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 }
@@ -54,8 +52,6 @@ export function renderReference(
 	config:    TutorConfig,
 	allTopics: Topic[],
 ): void {
-	if (topic === _lastRenderedTopic) return
-	_lastRenderedTopic = topic
 	const el = document.getElementById('reference')!
 
 	if (!topic) { el.innerHTML = renderEmpty(config); return }

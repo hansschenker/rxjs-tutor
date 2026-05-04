@@ -9,6 +9,7 @@ export function reducer(state: AppState, action: Action): AppState {
 				...state,
 				selectedTopic:    action.topic,
 				selectedCategory: action.topic.category,
+				sidebarExpanded:  new Set([...state.sidebarExpanded, action.topic.category]),
 				chat: { history: [], loading: false, error: null },
 			}
 
