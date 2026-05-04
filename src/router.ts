@@ -1,9 +1,8 @@
 // src/router.ts
 import { fromEvent, startWith, EMPTY, Subscription } from 'rxjs'
 import { map, distinctUntilChanged } from 'rxjs'
-import { topics } from './curriculum/index'
 import { action$ } from './mvu/store'
-import type { TutorConfig } from './curriculum/types'
+import type { Topic, TutorConfig } from './curriculum/types'
 
 export interface Route {
 	category:    string | null
@@ -40,7 +39,7 @@ export const route$ = isBrowser
 	)
 	: EMPTY
 
-export function initRouter(config: TutorConfig): Subscription {
+export function initRouter(config: TutorConfig, topics: Topic[]): Subscription {
 	return route$.subscribe(route => {
 		if (route.searchQuery !== null) {
 			action$.next({ type: 'SEARCH_CHANGED', query: route.searchQuery })

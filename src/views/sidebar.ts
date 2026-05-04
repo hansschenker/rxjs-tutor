@@ -1,7 +1,6 @@
 // src/views/sidebar.ts
-import type { Topic, TutorConfig } from '../curriculum/types'
+import type { Topic, Family, TutorConfig } from '../curriculum/types'
 import type { AppState } from '../mvu/model'
-import { families } from '../curriculum/index'
 import { action$ } from '../mvu/store'
 import { navigateTo } from '../router'
 
@@ -12,13 +11,13 @@ function escapeHtml(s: string): string {
 }
 
 function renderFamilyItem(
-	category: string,
+	category:       string,
 	filteredTopics: Topic[],
-	expanded: Set<string>,
-	selected: Topic | null,
+	expanded:       Set<string>,
+	selected:       Topic | null,
 ): string {
-	const isExpanded  = expanded.has(category)
-	const topicItems  = filteredTopics
+	const isExpanded = expanded.has(category)
+	const topicItems = filteredTopics
 		.filter(t => t.category === category)
 		.map(t => {
 			const isActive = selected?.name === t.name && selected?.category === t.category
@@ -38,7 +37,12 @@ function renderFamilyItem(
 	</div>`
 }
 
-export function renderSidebar(filteredTopics: Topic[], state: AppState, config: TutorConfig): void {
+export function renderSidebar(
+	filteredTopics: Topic[],
+	families:       Family[],
+	state:          AppState,
+	config:         TutorConfig,
+): void {
 	const el = document.getElementById('sidebar')!
 
 	el.innerHTML = `
