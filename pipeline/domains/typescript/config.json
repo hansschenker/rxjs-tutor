@@ -1,0 +1,21 @@
+{
+  "domain": {
+    "name": "TypeScript",
+    "description": "Topics cover TypeScript's type system: utility types, generics, conditional types, mapped types, and template literal types.",
+    "defaultCategory": "Utility Types",
+    "defaultTopic": "Partial",
+    "labels": {
+      "category": "Module",
+      "topic": "Type",
+      "definition": "Syntax",
+      "visual": "Type Diagram"
+    }
+  },
+  "extraction": {
+    "model": "claude-haiku-4-5-20251001",
+    "maxChunkChars": 8000
+  },
+  "output": {
+    "dir": "pipeline/output/typescript"
+  }
+}
