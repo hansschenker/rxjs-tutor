@@ -8,5 +8,5 @@
     "noUnusedParameters": true,
     "skipLibCheck": true
   },
-  "include": ["server", "scripts"]
+  "include": ["server", "scripts", "pipeline"]
 }
