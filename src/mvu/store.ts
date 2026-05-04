@@ -4,7 +4,6 @@ import { scan, startWith, shareReplay, map, distinctUntilChanged, filter } from 
 import { reducer }      from './reducer'
 import { initialState } from './model'
 import type { Action }     from './actions'
-import type { TutorConfig } from '../curriculum/types'
 
 export const action$ = new Subject<Action>()
 
@@ -66,7 +65,3 @@ export const filteredTopics$ = combineLatest([topics$, searchQuery$]).pipe(
 		: ts
 	),
 )
-
-// Satisfy TypeScript: TutorConfig is imported but only used via state$ derivation above.
-// This explicit re-export keeps the import live without an unused-variable error.
-export type { TutorConfig }
