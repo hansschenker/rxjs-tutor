@@ -1,5 +1,7 @@
 // src/mvu/model.ts
-import type { Topic } from '../curriculum/types'
+import type { Topic, Family, TutorConfig } from '../curriculum/types'
+
+export type CurriculumStatus = 'loading' | 'ready' | 'error'
 
 export interface ChatMessage {
 	role: 'user' | 'assistant'
@@ -9,7 +11,7 @@ export interface ChatMessage {
 export interface ChatState {
 	history: ChatMessage[]
 	loading: boolean
-	error: string | null
+	error:   string | null
 }
 
 export interface AppState {
@@ -18,6 +20,11 @@ export interface AppState {
 	searchQuery:      string
 	sidebarExpanded:  Set<string>
 	chat:             ChatState
+	topics:           Topic[]
+	families:         Family[]
+	tutorConfig:      TutorConfig | null
+	curriculumStatus: CurriculumStatus
+	curriculumError:  string | null
 }
 
 export const initialState: AppState = {
@@ -25,5 +32,10 @@ export const initialState: AppState = {
 	selectedTopic:    null,
 	searchQuery:      '',
 	sidebarExpanded:  new Set(),
-	chat: { history: [], loading: false, error: null },
+	chat:             { history: [], loading: false, error: null },
+	topics:           [],
+	families:         [],
+	tutorConfig:      null,
+	curriculumStatus: 'loading',
+	curriculumError:  null,
 }

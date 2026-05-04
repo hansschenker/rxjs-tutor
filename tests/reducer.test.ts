@@ -2,7 +2,7 @@
 import { describe, test, expect } from 'vitest'
 import { reducer } from '../src/mvu/reducer'
 import { initialState } from '../src/mvu/model'
-import type { Topic } from '../src/curriculum/types'
+import type { Topic, Family } from '../src/curriculum/types'
 
 function mockTopic(name: string): Topic {
 	return {
@@ -76,5 +76,37 @@ describe('reducer', () => {
 		const state   = reducer(loading, { type: 'CHAT_ERROR', message: 'Network error' })
 		expect(state.chat.error).toBe('Network error')
 		expect(state.chat.loading).toBe(false)
+	})
+
+	test('CURRICULUM_LOADED sets topics, families, tutorConfig, status ready', () => {
+		const t1: Topic = mockTopic('map')
+		const family    = { name: 'Transformation', description: '', topics: [t1] }
+		const tutor     = {
+			domainName:           'RxJS',
+			systemPromptTemplate: 'You are a {domainName} tutor.',
+			defaultCategory:      'Transformation',
+			defaultTopic:         'map',
+			labels:               { category: 'Family', topic: 'Operator' },
+		}
+		const state = reducer(initialState, {
+			type:        'CURRICULUM_LOADED',
+			topics:      [t1],
+			families:    [family],
+			tutorConfig: tutor,
+		})
+		expect(state.topics).toEqual([t1])
+		expect(state.families).toHaveLength(1)
+		expect(state.tutorConfig?.domainName).toBe('RxJS')
+		expect(state.curriculumStatus).toBe('ready')
+		expect(state.curriculumError).toBeNull()
+	})
+
+	test('CURRICULUM_FAILED sets status error with message', () => {
+		const state = reducer(initialState, {
+			type:  'CURRICULUM_FAILED',
+			error: 'Network error',
+		})
+		expect(state.curriculumStatus).toBe('error')
+		expect(state.curriculumError).toBe('Network error')
 	})
 })

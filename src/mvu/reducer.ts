@@ -1,6 +1,6 @@
 // src/mvu/reducer.ts
 import type { AppState } from './model'
-import type { Action } from './actions'
+import type { Action }   from './actions'
 
 export function reducer(state: AppState, action: Action): AppState {
 	switch (action.type) {
@@ -39,7 +39,7 @@ export function reducer(state: AppState, action: Action): AppState {
 		case 'CHAT_CHUNK_RECEIVED': {
 			const history = [...state.chat.history]
 			const last    = history[history.length - 1]
-			history[history.length - 1] = { ...last, content: last.content + action.chunk }
+			history[history.length - 1] = { ...last!, content: last!.content + action.chunk }
 			return { ...state, chat: { ...state.chat, history } }
 		}
 
@@ -48,6 +48,23 @@ export function reducer(state: AppState, action: Action): AppState {
 
 		case 'CHAT_ERROR':
 			return { ...state, chat: { ...state.chat, loading: false, error: action.message } }
+
+		case 'CURRICULUM_LOADED':
+			return {
+				...state,
+				topics:           action.topics,
+				families:         action.families,
+				tutorConfig:      action.tutorConfig,
+				curriculumStatus: 'ready',
+				curriculumError:  null,
+			}
+
+		case 'CURRICULUM_FAILED':
+			return {
+				...state,
+				curriculumStatus: 'error',
+				curriculumError:  action.error,
+			}
 
 		default:
 			return state
