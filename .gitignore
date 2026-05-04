@@ -5,3 +5,4 @@ dist-server/
 .superpowers/
 .worktrees/
 pipeline/output/
+data/

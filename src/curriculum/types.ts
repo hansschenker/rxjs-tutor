@@ -43,3 +43,11 @@ export interface TutorConfig {
 		definition?: string
 	}
 }
+
+export interface CurriculumJson {
+	domain:      string
+	generatedAt: string
+	topics:      Topic[]
+	families:    Family[]
+	tutorConfig: TutorConfig
+}

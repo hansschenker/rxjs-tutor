@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"tsx watch server/chat.ts\"",
+    "dev": "concurrently \"vite\" \"tsx watch server/index.ts\"",
     "build": "tsc -p tsconfig.json && vite build",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -11,12 +11,14 @@
     "pipeline": "tsx pipeline/run.ts"
   },
   "dependencies": {
-    "rxjs": "^7.8.1",
     "@anthropic-ai/sdk": "^0.52.0",
-    "express": "^5.0.0"
+    "express": "^5.0.0",
+    "multer": "^2.1.1",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/multer": "^2.1.0",
     "@types/node": "^22.0.0",
     "concurrently": "^9.0.0",
     "tsx": "^4.19.0",
