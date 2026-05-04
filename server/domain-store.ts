@@ -14,12 +14,26 @@ interface DomainRegistry {
 	domains: Domain[]
 }
 
-export function createDomainStore(dataDir: string) {
+export interface DomainStore {
+	getDomains(): Domain[]
+	getDomain(id: string): Domain | undefined
+	addDomain(domain: Domain): void
+	updateDomain(id: string, patch: Partial<Domain>): void
+}
+
+export function createDomainStore(dataDir: string): DomainStore {
 	const registryPath = join(dataDir, 'domains.json')
 
 	function readRegistry(): DomainRegistry {
 		if (!existsSync(registryPath)) return { domains: [] }
-		return JSON.parse(readFileSync(registryPath, 'utf-8')) as DomainRegistry
+		const raw = JSON.parse(readFileSync(registryPath, 'utf-8')) as unknown
+		if (
+			typeof raw !== 'object' || raw === null ||
+			!Array.isArray((raw as Record<string, unknown>)['domains'])
+		) {
+			throw new Error(`Corrupted registry at ${registryPath}`)
+		}
+		return raw as DomainRegistry
 	}
 
 	function writeRegistry(registry: DomainRegistry): void {
@@ -38,6 +52,9 @@ export function createDomainStore(dataDir: string) {
 
 		addDomain(domain: Domain): void {
 			const registry = readRegistry()
+			if (registry.domains.some(d => d.id === domain.id)) {
+				throw new Error(`Domain already exists: ${domain.id}`)
+			}
 			registry.domains.push(domain)
 			writeRegistry(registry)
 		},

@@ -68,4 +68,11 @@ describe('createDomainStore', () => {
 		const store2 = createDomainStore(tmpDir)
 		expect(store2.getDomains()).toHaveLength(1)
 	})
+
+	test('addDomain throws when id already exists', () => {
+		const store = makeStore()
+		store.addDomain({ id: 'ts', name: 'TypeScript', description: '', createdAt: new Date().toISOString(), lastRun: null, topicCount: null })
+		expect(() => store.addDomain({ id: 'ts', name: 'TypeScript', description: '', createdAt: new Date().toISOString(), lastRun: null, topicCount: null }))
+			.toThrow('Domain already exists: ts')
+	})
 })
