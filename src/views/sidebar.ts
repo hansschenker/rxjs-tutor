@@ -45,7 +45,6 @@ export function renderSidebar(
 ): void {
 	const el = document.getElementById('sidebar')!
 	const searchHadFocus = document.activeElement?.id === 'sidebar-search'
-	const searchCursor   = (document.activeElement as HTMLInputElement | null)?.selectionStart ?? null
 
 	el.innerHTML = `
 		<div class="sidebar-brand">${escapeHtml(config.domainName)} Tutor</div>
@@ -72,7 +71,8 @@ export function renderSidebar(
 
 	if (searchHadFocus) {
 		input.focus()
-		if (searchCursor !== null) input.setSelectionRange(searchCursor, searchCursor)
+		const len = input.value.length
+		input.setSelectionRange(len, len)
 	}
 
 	if (!keyListenerRegistered) {
