@@ -10,55 +10,64 @@ await mkdir(OUTDIR, { recursive: true })
 const browser = await chromium.launch({ headless: true })
 const page    = await browser.newPage()
 await page.setViewportSize({ width: 1400, height: 900 })
-
 page.on('pageerror', err => console.error('[pageerror]', err.message))
 
-async function shot(name) {
-  const path = join(OUTDIR, `${name}.png`)
-  await page.screenshot({ path, fullPage: false })
-  console.log(`saved: ${path}`)
-}
-
-async function selectOp(family, opName) {
-  const sel = `[data-op-name="${opName}"][data-op-category="${family}"]`
-  if (await page.locator(sel).count() === 0) {
-    await page.locator(`[data-toggle-category="${family}"]`).click()
-    await page.waitForSelector(sel, { timeout: 3000 })
-  }
-  await page.locator(sel).click()
-  await page.waitForTimeout(300)
-}
-
-async function readState() {
-  return page.evaluate(() => ({
-    ref:    document.querySelector('#reference h1.reference-name')?.textContent ?? '(none)',
-    chat:   document.querySelector('.chat-header')?.textContent?.trim() ?? '(none)',
-    active: document.querySelector('.sidebar-operator--active')?.textContent?.trim() ?? '(none)',
-    url:    location.pathname,
-  }))
-}
-
-// Load app
 await page.goto(BASE, { waitUntil: 'domcontentloaded' })
 await page.waitForSelector('#loading', { state: 'hidden', timeout: 15000 })
 await page.waitForTimeout(600)
 
-console.log('Initial:', await readState())
-await shot('01-initial-switchmap')
+// ── 1. Search focus fix: type multiple chars without re-clicking ──────
+await page.locator('#sidebar-search').click()
+await page.keyboard.type('map')   // type 3 chars in succession
+await page.waitForTimeout(400)
+const searchValue = await page.locator('#sidebar-search').inputValue()
+const searchFocused = await page.locator('#sidebar-search').evaluate(el => document.activeElement === el)
+console.log('Search value after typing "map":', searchValue, '| still focused:', searchFocused)
+await page.screenshot({ path: join(OUTDIR, 'fix1-search-focus.png') })
 
-// Click map
-await selectOp('Transformation', 'map')
-console.log('After clicking map:', await readState())
-await shot('02-click-map')
+// ── 2. Chat scroll fix: send a message, get a long reply, check scroll ─
+await page.locator('#sidebar-search').fill('')           // clear search
+await page.waitForTimeout(200)
+// select switchMap
+const switchMapEl = page.locator('[data-op-name="switchMap"][data-op-category="Transformation"]')
+if (await switchMapEl.count() === 0) {
+  await page.locator('[data-toggle-category="Transformation"]').click()
+  await page.waitForSelector('[data-op-name="switchMap"]', { timeout: 3000 })
+}
+await switchMapEl.click()
+await page.waitForTimeout(400)
 
-// Click mergeMap
-await selectOp('Transformation', 'mergeMap')
-console.log('After clicking mergeMap:', await readState())
-await shot('03-click-mergeMap')
+// inject a long fake assistant reply to test scroll
+await page.evaluate(() => {
+  const msgs = document.getElementById('chat-messages')
+  if (!msgs) return
+  for (let i = 1; i <= 20; i++) {
+    const div = document.createElement('div')
+    div.className = 'chat-message chat-message--assistant'
+    div.textContent = `Line ${i}: switchMap cancels the previous inner Observable when a new value arrives from the source.`
+    msgs.appendChild(div)
+  }
+})
+await page.waitForTimeout(200)
 
-// Click map again (the distinctUntilChanged repro case)
-await selectOp('Transformation', 'map')
-console.log('After clicking map again:', await readState())
-await shot('04-click-map-again')
+const scrollInfo = await page.evaluate(() => {
+  const el = document.getElementById('chat-messages')
+  return {
+    scrollHeight: el.scrollHeight,
+    clientHeight: el.clientHeight,
+    scrollable:   el.scrollHeight > el.clientHeight,
+    overflowY:    getComputedStyle(el).overflowY,
+  }
+})
+console.log('Chat scroll info:', scrollInfo)
+
+// scroll to bottom to show scroll works
+await page.evaluate(() => {
+  const el = document.getElementById('chat-messages')
+  if (el) el.scrollTop = el.scrollHeight
+})
+await page.waitForTimeout(200)
+await page.screenshot({ path: join(OUTDIR, 'fix2-chat-scroll.png') })
 
 await browser.close()
+console.log('Done.')

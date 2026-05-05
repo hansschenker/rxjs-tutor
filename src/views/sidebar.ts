@@ -44,6 +44,8 @@ export function renderSidebar(
 	config:         TutorConfig,
 ): void {
 	const el = document.getElementById('sidebar')!
+	const searchHadFocus = document.activeElement?.id === 'sidebar-search'
+	const searchCursor   = (document.activeElement as HTMLInputElement | null)?.selectionStart ?? null
 
 	el.innerHTML = `
 		<div class="sidebar-brand">${escapeHtml(config.domainName)} Tutor</div>
@@ -67,6 +69,11 @@ export function renderSidebar(
 	input.addEventListener('input', () =>
 		action$.next({ type: 'SEARCH_CHANGED', query: input.value })
 	)
+
+	if (searchHadFocus) {
+		input.focus()
+		if (searchCursor !== null) input.setSelectionRange(searchCursor, searchCursor)
+	}
 
 	if (!keyListenerRegistered) {
 		keyListenerRegistered = true
