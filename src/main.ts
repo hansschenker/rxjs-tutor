@@ -35,9 +35,13 @@ combineLatest([filteredTopics$, families$, state$, config$]).subscribe(
 )
 
 // ── Reference panel ──────────────────────────────────────────────────
-combineLatest([selectedTopic$, config$, topics$]).subscribe(
-	([t, config, allTopics]) => renderReference(t, config, allTopics)
+combineLatest([config$, topics$]).pipe(take(1)).subscribe(
+	([config, allTopics]) => renderReference(null, config, allTopics)
 )
+action$.pipe(
+	ofType('TOPIC_SELECTED'),
+	withLatestFrom(combineLatest([config$, topics$]))
+).subscribe(([a, [config, allTopics]]) => renderReference(a.topic, config, allTopics))
 
 // ── Chat panel ───────────────────────────────────────────────────────
 action$.pipe(
