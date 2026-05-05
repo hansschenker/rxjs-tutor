@@ -3,6 +3,11 @@ import express from 'express'
 import { chatRouter }     from './chat.js'
 import { pipelineRouter } from './pipeline.js'
 
+if (!process.env['ANTHROPIC_API_KEY']) {
+	console.error('Error: ANTHROPIC_API_KEY environment variable is not set.')
+	process.exit(1)
+}
+
 const app = express()
 
 app.use(express.json())

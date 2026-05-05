@@ -55,8 +55,8 @@ action$.pipe(ofType('CHAT_CHUNK_RECEIVED')).subscribe(a => appendChatChunk(a.chu
 chatEffect$.subscribe(action$)
 
 // ── Router ────────────────────────────────────────────────────────────
-combineLatest([config$, state$.pipe(filter(s => s.topics.length > 0))]).pipe(
+const routerSub = combineLatest([config$, state$.pipe(filter(s => s.topics.length > 0))]).pipe(
 	take(1),
 ).subscribe(([config, state]) => {
-	initRouter(config, state.topics)
+	routerSub.add(initRouter(config, state.topics))
 })
