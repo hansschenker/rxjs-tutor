@@ -14,7 +14,7 @@ import { initRouter }                  from './router'
 import type { TutorConfig }            from './curriculum/types'
 
 // ── Curriculum fetch ──────────────────────────────────────────────────
-fetchCurriculum('rxjs').subscribe(action$)
+fetchCurriculum('rxjs').subscribe({ next: a => action$.next(a) })
 
 // ── Loading overlay ───────────────────────────────────────────────────
 curriculumStatus$.subscribe(status => {
@@ -52,7 +52,7 @@ action$.pipe(
 action$.pipe(ofType('CHAT_CHUNK_RECEIVED')).subscribe(a => appendChatChunk(a.chunk))
 
 // ── Effects ───────────────────────────────────────────────────────────
-chatEffect$.subscribe(action$)
+chatEffect$.subscribe({ next: a => action$.next(a) })
 
 // ── Router ────────────────────────────────────────────────────────────
 const routerSub = combineLatest([config$, state$.pipe(filter(s => s.topics.length > 0))]).pipe(
