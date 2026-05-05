@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir *)",
+      "Bash(python3 -c ' *)",
+      "Bash(node *)",
+      "PowerShell(node -e \"const d = JSON.parse\\(require\\('fs'\\).readFileSync\\('C:/Users/HP/Web/Frontend/rxjs/rxjs-tutor/data/curriculum/rxjs/curriculum.json', 'utf8'\\)\\); console.log\\('Family names:', JSON.stringify\\(d.families.map\\(f => f.name\\)\\)\\); console.log\\('Topic categories:', JSON.stringify\\([...new Set\\(d.topics.map\\(t => t.category\\)\\)].sort\\(\\)\\)\\); console.log\\('Default:', d.tutorConfig.defaultTopic, 'in', d.tutorConfig.defaultCategory\\);\")",
+      "Read(//c/Users/HP/Web/Frontend//**)",
+      "Read(//c/Users/HP/Web/Frontend/**)",
+      "Bash(git *)",
+      "Bash(npm test *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3001/api/domains)",
+      "Bash(curl -s http://localhost:3001/api/domains/rxjs/curriculum)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
